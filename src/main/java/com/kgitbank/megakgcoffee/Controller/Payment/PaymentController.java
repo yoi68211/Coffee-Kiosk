@@ -1,7 +1,7 @@
 package com.kgitbank.megakgcoffee.Controller.Payment;
 
-import com.kgitbank.megakgcoffee.Service.Test.TestService;
-import com.kgitbank.megakgcoffee.Service.Test.TestServiceFactory;
+import com.kgitbank.megakgcoffee.Service.Payment.PaymentService;
+import com.kgitbank.megakgcoffee.Service.Payment.PaymentServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,15 +13,15 @@ import java.util.ResourceBundle;
 
 public class PaymentController implements Initializable {
 
-    @FXML TextField test_id;
-    @FXML TextField test_password;
+    @FXML PaymentField test_id;
+    @FXML PaymentField test_password;
     @FXML Button test_button;
 
-    private TestService testService;
+    private PaymentService paymentService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        testService = TestServiceFactory.getTestService();
+        paymentService = PaymentServiceFactory.getPaymentService();
     }
 
 

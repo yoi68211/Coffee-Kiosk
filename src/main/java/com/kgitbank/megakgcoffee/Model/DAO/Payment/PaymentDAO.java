@@ -1,4 +1,10 @@
 package com.kgitbank.megakgcoffee.Model.DAO.Payment;
 
-public class PaymentDAO  {
+import com.kgitbank.megakgcoffee.Model.DTO.Payment.PaymentDTO;
+
+
+public interface PaymentDAO  {
+
+    void insert(PaymentDTO paymentDTO);
+
 }
