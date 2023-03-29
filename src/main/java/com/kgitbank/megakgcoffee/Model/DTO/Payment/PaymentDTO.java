@@ -1,4 +1,4 @@
-package com.kgitbank.megakgcoffee.paymentDTO;
+package com.kgitbank.megakgcoffee.Model.DTO.Payment;
 
 public class PaymentDTO {
 
@@ -8,6 +8,18 @@ public class PaymentDTO {
     private String paymentReg_style;   //  결제 수단
     private String paymentReg_comment;   //  매장 요청사항
     private String paymentReg_CashReceipts;   //  회원 전화번호
+
+
+    public PaymentDTO(int paymentReg_sysdate, String paymentReg_style, String paymentReg_comment, String paymentReg_CashReceipts) {
+        this.paymentReg_sysdate = paymentReg_sysdate;
+        this.paymentReg_style = paymentReg_style;
+        this.paymentReg_comment = paymentReg_comment;
+        this.paymentReg_CashReceipts = paymentReg_CashReceipts;
+
+    }
+
+
+
 
     public int getPayment_seq() {
         return payment_seq;
