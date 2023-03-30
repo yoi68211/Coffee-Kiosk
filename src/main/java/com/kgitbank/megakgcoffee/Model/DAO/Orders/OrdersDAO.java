@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface OrdersDAO {
     List<OrdersDTO> selectMenu(String category_menu);
+    int NumberOfMenusPerCategory(String category_menu);
 }

@@ -25,8 +25,6 @@ public class IOrdersDAO implements OrdersDAO{
     @Override
     public List<OrdersDTO> selectMenu(String category_menu) {
 
-        System.out.println(category_menu);
-
         List<OrdersDTO> ordersDTOS = new ArrayList<>();
 
         String selectMenu = "SELECT * FROM tb_menu" +
@@ -51,5 +49,10 @@ public class IOrdersDAO implements OrdersDAO{
             e.printStackTrace();
         }
         return null; // todo :: null 값 반환하지말고 다른 값 반환하게 추후 변경
+    }
+
+    @Override
+    public int NumberOfMenusPerCategory(String category_menu) {
+        return 0;
     }
 }

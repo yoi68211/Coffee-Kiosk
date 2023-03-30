@@ -37,22 +37,29 @@
       <VBox layoutX="21.0" layoutY="142.0" prefHeight="136.0" prefWidth="100.0" stylesheets="@../../../../Styles/order.css">
          <children>
             <Circle fx:id="category_circle_one" fill="#f8de74" radius="50.0" stroke="#f8de74" strokeType="INSIDE" strokeWidth="3.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Americano" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="0" />
+            <Label fx:id="category_menu_name_one" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" styleClass="order_menu_choice_container" stylesheets="@../../../../Styles/order.css" text="Americano" />
+            <Label fx:id="category_menu_price_one" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" styleClass="order_menu_choice_container" stylesheets="@../../../../Styles/order.css" text="0" />
          </children>
       </VBox>
       <VBox layoutX="149.0" layoutY="142.0" prefHeight="136.0" prefWidth="100.0" stylesheets="@../../../../Styles/order.css">
          <children>
             <Circle fx:id="category_circle_two" fill="#f8de74" radius="50.0" stroke="#f8de74" strokeType="INSIDE" strokeWidth="3.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Latte" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="0" />
+            <Label fx:id="category_menu_name_two" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Latte" />
+            <Label fx:id="category_menu_price_two" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="0" />
          </children>
       </VBox>
       <VBox layoutX="280.0" layoutY="142.0" prefHeight="136.0" prefWidth="100.0" stylesheets="@../../../../Styles/order.css">
          <children>
             <Circle fx:id="category_circle_three" fill="#f8de74" radius="50.0" stroke="#f8de74" strokeType="INSIDE" strokeWidth="3.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Americano" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="0" />
+            <Label fx:id="category_menu_name_three" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="Americano" />
+            <Label fx:id="category_menu_price_three" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" text="0" />
+         </children>
+      </VBox>
+      <VBox fx:id="vboxHideTest" layoutX="21.0" layoutY="287.0" prefHeight="136.0" prefWidth="100.0" stylesheets="@../../../../Styles/order.css">
+         <children>
+            <Circle fx:id="category_circle_four" fill="#f8de74" radius="50.0" stroke="#f8de74" strokeType="INSIDE" strokeWidth="3.0" />
+            <Label fx:id="category_menu_name_four" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" styleClass="order_menu_choice_container" stylesheets="@../../../../Styles/order.css" text="Americano" />
+            <Label fx:id="category_menu_price_four" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="106.0" styleClass="order_menu_choice_container" stylesheets="@../../../../Styles/order.css" text="0" />
          </children>
       </VBox>
    </children>

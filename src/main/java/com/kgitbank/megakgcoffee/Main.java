@@ -21,11 +21,11 @@ public class Main extends Application {
 //        stage.setTitle("Connection Test");
 //        stage.show();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Fxml/Orders.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.setTitle("Order Test");
-        stage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Fxml/Orders.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setScene(scene);
+//        stage.setTitle("Order Test");
+//        stage.show();
     }
 
     public static void main(String[] args) {
