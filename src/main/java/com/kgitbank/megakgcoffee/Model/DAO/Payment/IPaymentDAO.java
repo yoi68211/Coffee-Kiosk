@@ -25,13 +25,13 @@ public class IPaymentDAO implements PaymentDAO{
     @Override
     public void insert(PaymentDTO PaymentDTO) {
 
-        String insertSQL = "INSERT INTO test_tb_Coffee(test_seq, test_id, test_password)" +
-                " VALUES (test_Coffee_seq.NEXTVAL,?,?)";
+        String insertSQL = "INSERT INTO payment_view(payment_seq, paymentReg_style, paymentReg_comment)" +
+                " VALUES (test_Coffee_payment_seq.NEXTVAL,?,?)";
 
         try {
             PreparedStatement ps = connection.prepareStatement(insertSQL);
-            ps.setString(1, PaymentDTO.getTest_id());
-            ps.setString(2, PaymentDTO.getTest_password());
+            ps.setString(1, PaymentDTO.getPaymentReg_style());
+            ps.setString(2, PaymentDTO.getPaymentReg_comment());
             ps.executeQuery();
 
             ps.close();
