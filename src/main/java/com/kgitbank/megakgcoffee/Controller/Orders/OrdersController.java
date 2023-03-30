@@ -24,32 +24,55 @@ public class OrdersController implements Initializable {
     @FXML public Button category_smoothie_selected;
     @FXML public Button category_ade_selected;
     @FXML public Button category_Dessert_selected;
+
     @FXML public Circle category_circle_one;
     @FXML public Circle category_circle_two;
     @FXML public Circle category_circle_three;
+    @FXML public Circle category_circle_four;
+    @FXML public Circle category_circle_five;
+    @FXML public Circle category_circle_six;
+
     @FXML public Label category_menu_name_one;
     @FXML public Label category_menu_price_one;
     @FXML public Label category_menu_name_two;
     @FXML public Label category_menu_price_two;
     @FXML public Label category_menu_name_three;
     @FXML public Label category_menu_price_three;
+    @FXML public Label category_menu_name_four;
+    @FXML public Label category_menu_price_four;
+    @FXML public Label category_menu_name_five;
+    @FXML public Label category_menu_price_five;
+    @FXML public Label category_menu_name_six;
+    @FXML public Label category_menu_price_six;
+
+    @FXML public VBox order_vbox_one;
+    @FXML public VBox order_vbox_two;
+    @FXML public VBox order_vbox_three;
+    @FXML public VBox order_vbox_four;
+    @FXML public VBox order_vbox_five;
+    @FXML public VBox order_vbox_six;
+
+    @FXML public Label how_many_items;
+
     public Button[] arrayButtons;
     public Circle[] arrayCircles;
     public Label[] arrayLabelNames;
     public Label[] arrayLabelPrices;
-
-    @FXML public VBox vboxHideTest; // todo :: test
-
+    public VBox[] arrayVBoxes;
 
     private OrdersService ordersService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ordersService = OrderServiceFactory.getOrderService();
+        initializeVBoxArray();
         initializeButtonArray();
         initializeCircleArray();
         initializeLabel();
-        ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices);
+        category_coffee_selected.setStyle("-fx-background-radius: 15px;\n" +
+                "    -fx-background-color: black;\n" +
+                "    -fx-text-fill: white;");
+        ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices, arrayVBoxes, how_many_items);
 
     }
 
@@ -61,24 +84,42 @@ public class OrdersController implements Initializable {
         arrayButtons[3] = category_Dessert_selected;
     }
 
+    public void initializeVBoxArray() {
+        arrayVBoxes = new VBox[6]; // VBox 추후 6개로 고정
+        arrayVBoxes[0] = order_vbox_one;
+        arrayVBoxes[1] = order_vbox_two;
+        arrayVBoxes[2] = order_vbox_three;
+        arrayVBoxes[3] = order_vbox_four;
+        arrayVBoxes[4] = order_vbox_five;
+        arrayVBoxes[5] = order_vbox_six;
+    }
+
     public void initializeCircleArray() {
-        arrayCircles = new Circle[3];
+        arrayCircles = new Circle[6]; // 추후 6개로 고정
         arrayCircles[0] = category_circle_one;
         arrayCircles[1] = category_circle_two;
         arrayCircles[2] = category_circle_three;
+        arrayCircles[3] = category_circle_four;
+        arrayCircles[4] = category_circle_five;
+        arrayCircles[5] = category_circle_six;
     }
 
-    public void initializeLabel() {
-        arrayLabelNames = new Label[3];
+    public void initializeLabel() { // 추후 6개씩 고정
+        arrayLabelNames = new Label[6];
         arrayLabelNames[0] = category_menu_name_one;
         arrayLabelNames[1] = category_menu_name_two;
         arrayLabelNames[2] = category_menu_name_three;
+        arrayLabelNames[3] = category_menu_name_four;
+        arrayLabelNames[4] = category_menu_name_five;
+        arrayLabelNames[5] = category_menu_name_six;
 
-        arrayLabelPrices = new Label[3];
+        arrayLabelPrices = new Label[6];
         arrayLabelPrices[0] = category_menu_price_one;
         arrayLabelPrices[1] = category_menu_price_two;
         arrayLabelPrices[2] = category_menu_price_three;
-
+        arrayLabelPrices[3] = category_menu_price_four;
+        arrayLabelPrices[4] = category_menu_price_five;
+        arrayLabelPrices[5] = category_menu_price_six;
     }
 
     @FXML
@@ -93,7 +134,7 @@ public class OrdersController implements Initializable {
                         "    -fx-background-color: black;\n" +
                         "    -fx-text-fill: white;");
                 category_menu = arrayButton.getText().toLowerCase();
-                ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices);
+                ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices, arrayVBoxes, how_many_items);
             }
         }
 
