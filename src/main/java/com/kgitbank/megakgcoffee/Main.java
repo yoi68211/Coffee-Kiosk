@@ -1,7 +1,10 @@
 package com.kgitbank.megakgcoffee;
 
+import com.kgitbank.megakgcoffee.Controller.HomeView.HomeViewMainController;
+import com.kgitbank.megakgcoffee.Model.DAO.HomeView.HomeViewOpenerFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -16,7 +19,15 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomeView_main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),250,400);
+        Parent mainForm = fxmlLoader.load();
+
+        HomeViewOpenerFactory openerFactory = new HomeViewOpenerFactory();
+        openerFactory.setPrimayStage(stage);
+
+        HomeViewMainController mainController = fxmlLoader.getController();
+        mainController.setFactory(openerFactory);
+
+        Scene scene = new Scene(mainForm);
         stage.setScene(scene);
         stage.setTitle("Connection Test");
         stage.show();

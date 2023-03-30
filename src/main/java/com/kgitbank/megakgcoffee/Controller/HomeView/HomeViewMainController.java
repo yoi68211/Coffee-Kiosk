@@ -1,15 +1,12 @@
 package com.kgitbank.megakgcoffee.Controller.HomeView;
 
-import com.kgitbank.megakgcoffee.HomeView.HomeView_Home;
-import com.kgitbank.megakgcoffee.HomeView.HomeView_Main;
+import com.kgitbank.megakgcoffee.Model.DAO.HomeView.HomeViewOpenerFactory;
 import com.kgitbank.megakgcoffee.Service.HomeView.HomeViewService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,36 +14,33 @@ import java.util.ResourceBundle;
 public class HomeViewMainController implements Initializable {
 
     @FXML
-    Button homeview_login;
+    private Button homeview_loginBtn;
     private HomeViewService service;
+    private HomeViewOpenerFactory factory;
+    private Parent HomeForm;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        service = new HomeViewService();
+        factory = new HomeViewOpenerFactory();
+    }
+    // 어떤 서비스로 보낼것인가  크게 많은 코드는  X  , 어떤 메소드에 따라서 어떤 메소드 인자값,  이니셜이 처음시작될떄!
+    // 팩토리 =>  서비스 이데이오  랑 연결을 할때 팩토리에서 가져오는데, 디에오 임플리먼트는 재정의 필욯니까! 디에오로 반환값이 테스트디에오
+    //
 
-        homeview_login.setOnMouseClicked(e -> {
-            service = new HomeViewService();
-        });
+
+
+    public void setFactory(HomeViewOpenerFactory factory) {
+        this.factory = factory;
     }
 
-    public void loginProc() {
-//        HomeView_Home
-
-//        Stage loginStage = new Stage();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeView_home.fxml"));
-//
-//        Parent loginForm = null;
-//        try {
-//            loginForm = loader.load();
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        HomeView_Main logCon = loader.getController();
-//        logCon.setLoginForm(loginForm);
-//
-//
-//        Scene scene = new Scene(loginForm);
-//        loginStage.setTitle("회원가입 화면");
-//        loginStage.setScene(scene);
-//        loginStage.show();
+    @FXML
+    private void handleLoginBtn(ActionEvent event) {
+        factory.LoginOpenProc();
+        service.LoginButtonClick(homeview_loginBtn);
     }
+
+
+
 }
+
