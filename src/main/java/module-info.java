@@ -6,6 +6,9 @@ module com.kgitbank.megakgcoffee {
 
 
     opens com.kgitbank.megakgcoffee to javafx.fxml;
-    opens com.kgitbank.megakgcoffee.Controller.Test to javafx.fxml;
+    //opens com.kgitbank.megakgcoffee.Controller.Test to javafx.fxml;
+    //opens com.kgitbank.megakgcoffee.Controller.Orders to javafx.fxml;
     exports com.kgitbank.megakgcoffee;
+    exports com.kgitbank.megakgcoffee.Controller.Test;
+    exports com.kgitbank.megakgcoffee.Controller.Orders;
 }
