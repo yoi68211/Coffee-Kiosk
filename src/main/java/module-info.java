@@ -13,6 +13,7 @@ module com.kgitbank.megakgcoffee {
     opens com.kgitbank.megakgcoffee.Controller.Test to javafx.fxml;
     exports com.kgitbank.megakgcoffee.Controller.Test;
     exports com.kgitbank.megakgcoffee.Controller.Orders;
+    exports com.kgitbank.megakgcoffee.Controller.OrderDetail;
 
     exports com.kgitbank.megakgcoffee.Controller.HomeView;
     opens com.kgitbank.megakgcoffee.Controller.HomeView to javafx.fxml;

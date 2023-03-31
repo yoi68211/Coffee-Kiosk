@@ -1,7 +1,10 @@
 package com.kgitbank.megakgcoffee;
 
+import com.kgitbank.megakgcoffee.Controller.Orders.OrdersController;
+import com.kgitbank.megakgcoffee.Opener.Opener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -23,9 +26,17 @@ public class Main extends Application {
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Fxml/Orders.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Parent orderForm = fxmlLoader.load();
+
+        Opener opener = new Opener();
+        opener.setPrimaryStage(stage);
+
+        OrdersController ordersController = fxmlLoader.getController();
+        ordersController.setOpener(opener);
+
+        Scene scene = new Scene(orderForm);
+        stage.setTitle("Order Page");
         stage.setScene(scene);
-        stage.setTitle("Order Test");
         stage.show();
     }
 

@@ -69,6 +69,8 @@ public class IOrdersDAO implements OrdersDAO{
             while(rs.next()) {
                 count = rs.getInt("dc");
             }
+            rs.close();
+            ps.close();
             return count;
         } catch (SQLException e) {
             e.printStackTrace();

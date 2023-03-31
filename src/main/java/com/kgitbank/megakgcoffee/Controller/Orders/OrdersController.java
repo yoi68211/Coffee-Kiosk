@@ -1,12 +1,16 @@
 package com.kgitbank.megakgcoffee.Controller.Orders;
 
+import com.kgitbank.megakgcoffee.Model.DTO.OrderDetail.OrderDataSingleton;
+import com.kgitbank.megakgcoffee.Opener.Opener;
 import com.kgitbank.megakgcoffee.Service.Orders.OrderServiceFactory;
 import com.kgitbank.megakgcoffee.Service.Orders.OrdersService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -61,6 +65,11 @@ public class OrdersController implements Initializable {
     public VBox[] arrayVBoxes;
 
     private OrdersService ordersService;
+    private Opener opener;
+
+    public void setOpener(Opener opener) {
+        this.opener = opener;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -138,5 +147,12 @@ public class OrdersController implements Initializable {
             }
         }
 
+    }
+
+
+    // 주문 상세 화면으로 넘어가는 클릭 이벤트
+    public void goOrderDetails(MouseEvent mouseEvent) {
+        Node node = (Node) mouseEvent.getSource(); // 이벤트를 발생시킨 객체 정보를 받아온다.
+        opener.OrderDetailPageOpen(node.getId());
     }
 }

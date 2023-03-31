@@ -1,0 +1,12 @@
+.order_detail_container {
+    -fx-background-color: white;
+}
+
+.order_detail_top_vox_container {
+    -fx-background-color: white;
+}
+
+.order_detail_top_vox_container Text {
+    -fx-font-size: 2em;
+    -fx-text-alignment: center;
+}
