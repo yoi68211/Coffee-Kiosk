@@ -52,5 +52,6 @@
     -fx-background-color: black;
 }
 
-.order_footer_container Text {
+.order_footer_container Button {
+    -fx-background-color: black;
 }

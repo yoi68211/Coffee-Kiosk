@@ -26,7 +26,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="order_top_menu_container" text="Order" wrappingWidth="258.21630859375" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="4.0" layoutY="35.0" prefHeight="74.0" prefWidth="390.0" spacing="12.0">
+      <HBox alignment="CENTER" layoutX="-2.0" layoutY="35.0" prefHeight="74.0" prefWidth="400.0" spacing="12.0" styleClass="order_container" stylesheets="@../../../../Styles/order.css">
          <children>
             <Button fx:id="category_coffee_selected" mnemonicParsing="false" onAction="#categoryPressed" prefHeight="35.0" prefWidth="79.0" styleClass="order_menu_category_container" stylesheets="@../../../../Styles/order.css" text="Coffee" />
             <Button fx:id="category_smoothie_selected" mnemonicParsing="false" onAction="#categoryPressed" prefHeight="35.0" prefWidth="85.0" styleClass="order_menu_category_container" stylesheets="@../../../../Styles/order.css" text="Smoothie" />
@@ -84,6 +84,11 @@
                   <Font size="35.0" />
                </font>
             </Text>
+            <Button fx:id="cart_items" alignment="TOP_CENTER" mnemonicParsing="false" onMouseClicked="#go_to_cart" prefHeight="44.0" prefWidth="92.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
    </children>

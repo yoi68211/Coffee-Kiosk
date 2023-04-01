@@ -2,6 +2,8 @@ package com.kgitbank.megakgcoffee.Controller.Orders;
 
 import com.kgitbank.megakgcoffee.Model.DTO.OrderDetail.OrderDataSingleton;
 import com.kgitbank.megakgcoffee.Opener.Opener;
+import com.kgitbank.megakgcoffee.Service.OrderCheck.OrderCheckServiceFactory;
+import com.kgitbank.megakgcoffee.Service.OrderCheck.OrderCheckService;
 import com.kgitbank.megakgcoffee.Service.Orders.OrderServiceFactory;
 import com.kgitbank.megakgcoffee.Service.Orders.OrdersService;
 import javafx.event.ActionEvent;
@@ -57,6 +59,7 @@ public class OrdersController implements Initializable {
     @FXML public VBox order_vbox_six;
 
     @FXML public Label how_many_items;
+    @FXML public Button cart_items;
 
     public Button[] arrayButtons;
     public Circle[] arrayCircles;
@@ -65,7 +68,9 @@ public class OrdersController implements Initializable {
     public VBox[] arrayVBoxes;
 
     private OrdersService ordersService;
+    private OrderCheckService orderCheckService;
     private Opener opener;
+    private OrderDataSingleton orderDataSingleton;
 
     public void setOpener(Opener opener) {
         this.opener = opener;
@@ -74,6 +79,8 @@ public class OrdersController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ordersService = OrderServiceFactory.getOrderService();
+        orderCheckService = OrderCheckServiceFactory.getOrderCheckService();
+        orderDataSingleton = OrderDataSingleton.getInstance();
         initializeVBoxArray();
         initializeButtonArray();
         initializeCircleArray();
@@ -82,6 +89,7 @@ public class OrdersController implements Initializable {
                 "    -fx-background-color: black;\n" +
                 "    -fx-text-fill: white;");
         ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices, arrayVBoxes, how_many_items);
+        cart_items.setText(String.valueOf(orderCheckService.findItemsInTheCart(1))); // todo :: 회원번호 1번으로 실험
 
     }
 
@@ -146,7 +154,6 @@ public class OrdersController implements Initializable {
                 ordersService.searchMenu(category_menu, arrayCircles, arrayLabelNames, arrayLabelPrices, arrayVBoxes, how_many_items);
             }
         }
-
     }
 
 
@@ -154,5 +161,9 @@ public class OrdersController implements Initializable {
     public void goOrderDetails(MouseEvent mouseEvent) {
         Node node = (Node) mouseEvent.getSource(); // 이벤트를 발생시킨 객체 정보를 받아온다.
         opener.OrderDetailPageOpen(node.getId());
+    }
+
+    public void go_to_cart(MouseEvent mouseEvent) {
+        opener.CartPageOpen();
     }
 }

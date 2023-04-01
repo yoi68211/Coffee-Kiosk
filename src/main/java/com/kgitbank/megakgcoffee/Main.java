@@ -1,5 +1,6 @@
 package com.kgitbank.megakgcoffee;
 
+import com.kgitbank.megakgcoffee.Controller.Cart.CartController;
 import com.kgitbank.megakgcoffee.Controller.Orders.OrdersController;
 import com.kgitbank.megakgcoffee.Opener.Opener;
 import javafx.application.Application;
@@ -30,6 +31,9 @@ public class Main extends Application {
 
         Opener opener = new Opener();
         opener.setPrimaryStage(stage);
+
+//        CartController cartController = fxmlLoader.getController();
+//        cartController.setOpener(opener);
 
         OrdersController ordersController = fxmlLoader.getController();
         ordersController.setOpener(opener);

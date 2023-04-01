@@ -49,6 +49,8 @@ public class IOrderDetailDAO implements OrderDetailDAO{
                 );
                 return orderDetailDTO;
             }
+            rs.close();
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
