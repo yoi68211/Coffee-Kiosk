@@ -1,5 +1,6 @@
 package com.kgitbank.megakgcoffee.Controller.OrderDetail;
 
+import com.kgitbank.megakgcoffee.Controller.Payment.OrderPaymentController;
 import com.kgitbank.megakgcoffee.Model.DTO.OrderDetail.OrderDataSingleton;
 import com.kgitbank.megakgcoffee.Opener.Opener;
 import com.kgitbank.megakgcoffee.Service.OrderDetailService.OrderDetailService;
@@ -8,6 +9,7 @@ import com.kgitbank.megakgcoffee.Service.OrderItem.OrderItemService;
 import com.kgitbank.megakgcoffee.Service.OrderItem.OrderItemServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -31,6 +33,12 @@ public class OrderDetailController implements Initializable {
     @FXML public Label menu_count;
     @FXML public Label menu_price;
     @FXML public Label base_menu_price;
+
+    private Opener opener;
+
+    public void setOpener(Opener opener) {
+        this.opener = opener;
+    }
 
     Label[] labels;
 
@@ -108,13 +116,17 @@ public class OrderDetailController implements Initializable {
     // 바로 주문
     public void order_now(MouseEvent mouseEvent) {
         orderItemService.orderNow(orderDataSingleton.getMenu_seq(), cnt, total_price);
+        orderDataSingleton.setCheckOrder(2);
+        Stage stage = (Stage) menu_detail.getScene().getWindow();
+        Opener opener = new Opener();
+        opener.OrderPayment(stage);
 
         // todo :: Alert 추후 삭제
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("CONFIRMATION");
-        alert.setHeaderText("즉시 주문");
-        alert.setContentText("결제 창으로 연결되면 Alert 삭제");
-        alert.showAndWait();
+//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("CONFIRMATION");
+//        alert.setHeaderText("즉시 주문");
+//        alert.setContentText("결제 창으로 연결되면 Alert 삭제");
+//        alert.showAndWait();
 
     }
 

@@ -2,6 +2,7 @@ package com.kgitbank.megakgcoffee.Opener;
 
 import com.kgitbank.megakgcoffee.Controller.OrderDetail.OrderDetailController;
 import com.kgitbank.megakgcoffee.Controller.Orders.OrdersController;
+import com.kgitbank.megakgcoffee.Controller.Payment.OrderPaymentController;
 import com.kgitbank.megakgcoffee.Model.DTO.OrderDetail.OrderDataSingleton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,6 +65,62 @@ public class Opener {
             e.printStackTrace();
         }
 
+    }
+
+    // 바로 주문 클릭시 결제화면 실행
+    public void OrderPayment(Stage stage) {
+        try {
+            URL fxmlPath = new File("src/main/resources/com/kgitbank/megakgcoffee/Fxml/OrderPayment.fxml").toURI().toURL();
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlPath);
+            Parent paymentForm = fxmlLoader.load();
+            Opener opener = new Opener();
+            opener.setPrimaryStage(stage);
+            OrderPaymentController orderPaymentController = fxmlLoader.getController();
+            orderPaymentController.setOpener(opener);
+            Scene scene = new Scene(paymentForm);
+            stage.setTitle("Payment");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CartToOrderPayment(Stage stage) {
+        try {
+            URL fxmlPath = new File("src/main/resources/com/kgitbank/megakgcoffee/Fxml/OrderPayment.fxml").toURI().toURL();
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlPath);
+            Parent CartToPaymentForm = fxmlLoader.load();
+            Opener opener = new Opener();
+            opener.setPrimaryStage(stage);
+            OrderPaymentController orderPaymentController = fxmlLoader.getController();
+            orderPaymentController.setOpener(opener);
+            Scene scene = new Scene(CartToPaymentForm);
+            stage.setTitle("Payment");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 결제화면에서 다시 주문 페이지 화면 실행
+    public void PaymentForBackToOrderPage(Stage stage) {
+        try {
+            URL fxmlPath = new File("src/main/resources/com/kgitbank/megakgcoffee/Fxml/Orders.fxml").toURI().toURL();
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlPath);
+            Parent paymentToOrderForm = fxmlLoader.load();
+            Opener opener = new Opener();
+            opener.setPrimaryStage(stage);
+            OrdersController ordersController = fxmlLoader.getController();
+            ordersController.setOpener(opener);
+            Scene scene = new Scene(paymentToOrderForm);
+            stage.setTitle("Orders");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     // 주문 페이지로 돌아가는 화면 실행

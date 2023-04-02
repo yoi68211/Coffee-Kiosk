@@ -2,6 +2,7 @@ package com.kgitbank.megakgcoffee.Service.OrderItem;
 
 import com.kgitbank.megakgcoffee.Model.DAO.OrderItem.OrderItemDAO;
 import com.kgitbank.megakgcoffee.Model.DAO.OrderItem.OrderItemDAOFactory;
+import com.kgitbank.megakgcoffee.Model.DTO.OrderDetail.OrderDataSingleton;
 import com.kgitbank.megakgcoffee.Model.DTO.OrderItem.OrderItemDTO;
 import com.kgitbank.megakgcoffee.Service.OrderCheck.OrderCheckServiceFactory;
 import com.kgitbank.megakgcoffee.Service.OrderCheck.OrderCheckService;
@@ -9,6 +10,7 @@ import javafx.scene.control.Alert;
 
 public class IOrderItemService implements OrderItemService{
 
+    OrderDataSingleton orderDataSingleton = OrderDataSingleton.getInstance();
     OrderItemDAO orderItemDAO = OrderItemDAOFactory.getOrderItemDAO();
     OrderCheckService orderCheckService = OrderCheckServiceFactory.getOrderCheckService();
     int orderItemMenu_seq; // 주문상품상세 테이블 입력용
@@ -43,6 +45,7 @@ public class IOrderItemService implements OrderItemService{
             orderItemMenu_seq = Integer.valueOf(itemMenu_seq);
             OrderItemDTO orderItemDTO = new OrderItemDTO(orderItemMenu_seq, cnt, total_price);
             orderItem_seq = orderItemDAO.insertOrderItem(orderItemDTO);
+            orderDataSingleton.setOrder_item_seq(orderItem_seq); // todo :: 주문 담은거 PK값 싱글톤에 저장
             if (orderItem_seq > 0) {
                 orderCheckService.createOrderNow(orderItem_seq, 1); // todo :: 주문상세번호, 회원번호 (test로 회원번호 1)
             } else {

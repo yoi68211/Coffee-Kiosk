@@ -163,6 +163,7 @@ public class OrdersController implements Initializable {
         opener.OrderDetailPageOpen(node.getId());
     }
 
+    // 장바구니 화면으로 넘어가는 클릭 이벤트
     public void go_to_cart(MouseEvent mouseEvent) {
         opener.CartPageOpen();
     }

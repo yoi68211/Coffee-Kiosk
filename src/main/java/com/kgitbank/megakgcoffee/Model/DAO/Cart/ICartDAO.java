@@ -5,6 +5,7 @@ import com.kgitbank.megakgcoffee.Connection.ConnectionMaker;
 import com.kgitbank.megakgcoffee.Model.DTO.Cart.CartDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.CheckBox;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class ICartDAO implements CartDAO{
                         rs.getInt("check_seq"),
                         rs.getString("menu_name"),
                         rs.getInt("item_count"),
-                        rs.getInt("item_price")
+                        rs.getInt("item_price"),
+                        new CheckBox()
                 ));
             }
             rs.close();
