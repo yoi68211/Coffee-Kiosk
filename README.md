@@ -19,7 +19,7 @@
 
 ## 시연 영상
 
-<img width="50%" src="https://github.com/yoi68211/Hotel-reservation/assets/122337470/878261e7-ab7d-4e1d-990a-8cde47978098">
+<img width="50%" src="https://github.com/yoi68211/Coffee-Kiosk/assets/122337470/b2be2eb0-cef1-4520-82e1-407b15359a29">
 
 
 ## 기능
