@@ -19,7 +19,7 @@
 
 ## 시연 영상
 
-<img width="50%" src="https://github.com/yoi68211/Coffee-Kiosk/assets/122337470/b2be2eb0-cef1-4520-82e1-407b15359a29">
+<img width="40%" src="https://github.com/yoi68211/Coffee-Kiosk/assets/122337470/b2be2eb0-cef1-4520-82e1-407b15359a29">
 
 
 ## 기능
